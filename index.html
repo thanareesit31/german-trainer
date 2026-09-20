@@ -1,92 +1,11 @@
-<!doctype html>
-<html lang="th">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Deutsch Trainer A1</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="topbar">
-  <div><b>🇩🇪 Deutsch Trainer</b><span>A1.1 · A1.2</span></div>
-  <button id="homeBtn" class="ghost">หน้าแรก</button>
-</header>
-<main>
-  <section id="homeView">
-    <div class="hero">
-      <p class="eyebrow">MEIN DEUTSCH</p>
-      <h1>ฝึกคำศัพท์เยอรมัน<br>ทีละบท จำให้ได้จริง</h1>
-      <p>เลือก Lektion แล้วฝึก Flashcards หรือ Quiz ระบบจะจำคำที่ตอบถูกและผิดไว้ใน browser เครื่องนี้</p>
-      <div class="stats">
-        <div><strong id="totalWords">0</strong><span>คำศัพท์</span></div>
-        <div><strong id="learnedWords">0</strong><span>เคยตอบถูก</span></div>
-        <div><strong id="wrongWords">0</strong><span>ควรทบทวน</span></div>
-      </div>
-    </div>
-
-    <div class="section-head">
-      <div><p class="eyebrow">LEARNING PATH</p><h2>เลือกบทเรียน</h2></div>
-      <select id="levelFilter">
-        <option value="all">ทั้งหมด</option>
-        <option value="A1.1">A1.1 · Lektion 1–6</option>
-        <option value="A1.2">A1.2 · Lektion 7–12</option>
-      </select>
-    </div>
-    <div id="lessonGrid" class="lesson-grid"></div>
-  </section>
-
-  <section id="practiceView" class="hidden">
-    <button id="backBtn" class="back">← กลับไปเลือกบท</button>
-    <div class="practice-head">
-      <div><p id="practiceLevel" class="eyebrow"></p><h2 id="practiceTitle"></h2><p id="practiceThai"></p></div>
-      <div class="mode-tabs">
-        <button class="mode active" data-mode="flash">Flashcards</button>
-        <button class="mode" data-mode="quiz">Quiz</button>
-        <button class="mode" data-mode="article">Artikel</button>
-      </div>
-    </div>
-
-    <div id="flashPanel" class="panel">
-      <div class="progressline"><span id="flashProgress"></span></div>
-      <div id="flashCard" class="flashcard" tabindex="0">
-        <p id="flashCategory" class="eyebrow"></p>
-        <h3 id="flashGerman"></h3>
-        <div id="flashAnswer" class="answer hidden">
-          <p id="flashThai"></p>
-          <small id="flashExtra"></small>
-        </div>
-        <p id="tapHint" class="hint">แตะการ์ดเพื่อดูคำแปล</p>
-      </div>
-      <div class="actions">
-        <button id="againBtn" class="danger">ยังไม่จำ</button>
-        <button id="knowBtn" class="success">จำได้</button>
-      </div>
-    </div>
-
-    <div id="quizPanel" class="panel hidden">
-      <div class="progressline"><span id="quizProgress"></span></div>
-      <p class="eyebrow">เลือกคำเยอรมันที่ตรงกับความหมาย</p>
-      <h3 id="quizQuestion"></h3>
-      <div id="quizOptions" class="options"></div>
-      <p id="quizFeedback" class="feedback"></p>
-      <button id="nextQuiz" class="primary hidden">ข้อต่อไป →</button>
-    </div>
-
-    <div id="articlePanel" class="panel hidden">
-      <p class="eyebrow">DER · DIE · DAS</p>
-      <h3 id="articleWord"></h3>
-      <p id="articleThai"></p>
-      <div id="articleOptions" class="article-options">
-        <button>der</button><button>die</button><button>das</button>
-      </div>
-      <p id="articleFeedback" class="feedback"></p>
-      <button id="nextArticle" class="primary hidden">ข้อต่อไป →</button>
-    </div>
-  </section>
-</main>
-<footer>ข้อมูลคำศัพท์จาก Data.xlsx · Progress เก็บเฉพาะใน browser เครื่องนี้</footer>
-<script src="data/lessons.js"></script>
-<script src="data/vocabulary.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Deutsch Trainer A1</title><link rel="stylesheet" href="style.css"></head>
+<body><header><b>🇩🇪 Deutsch Trainer</b><span>A1.1 · A1.2</span><button id="homeBtn">หน้าแรก</button></header><main>
+<section id="home"><div class="hero"><small>MEIN DEUTSCH</small><h1>ฝึกคำศัพท์เยอรมัน<br>ทีละบท จำให้ได้จริง</h1><p>ฝึกเป็นรอบ มีจุดเริ่มและจุดจบ พร้อมทบทวนคำที่ผิด</p><div class="stats"><div><b id="total">0</b><span>คำศัพท์</span></div><div><b id="learned">0</b><span>เคยตอบถูก</span></div><div><b id="review">0</b><span>ควรทบทวน</span></div></div></div>
+<div class="title"><div><small>LEARNING PATH</small><h2>เลือกบทเรียน</h2></div><select id="filter"><option value="all">ทั้งหมด</option><option>A1.1</option><option>A1.2</option></select></div><div id="grid" class="grid"></div></section>
+<section id="practice" class="hidden"><button id="back" class="back">← กลับไปเลือกบท</button><div class="title"><div><small id="level"></small><h2 id="ptitle"></h2><p id="pthai"></p></div><div class="tabs"><button data-mode="flash">Flashcards</button><button data-mode="quiz">Quiz</button><button data-mode="article">Artikel</button></div></div>
+<div id="setup" class="panel setup"><small>SESSION</small><h3>เลือกรูปแบบรอบฝึก</h3><p>Quiz และ Artikel สูงสุด 10 ข้อต่อรอบ ส่วน Flashcards ฝึกทุกคำในบท</p><div class="choices"><button data-start="flash">Flashcards · ทั้งบท</button><button data-start="quiz">Quiz · 10 ข้อ</button><button data-start="article">Artikel · 10 ข้อ</button></div></div>
+<div id="flashPanel" class="panel hidden"><div class="meta"><b id="flashCount"></b><span id="flashScore"></span></div><div class="bar"><i id="flashBar"></i></div><div id="card" class="card"><small id="cat"></small><h3 id="de"></h3><div id="answer" class="hidden"><p id="th"></p><em id="extra"></em></div><p id="hint">แตะการ์ดเพื่อดูคำแปล</p></div><div class="actions"><button id="again">ยังไม่จำ</button><button id="know">จำได้</button></div></div>
+<div id="quizPanel" class="panel hidden"><div class="meta"><b id="quizCount"></b><span id="quizScore"></span></div><div class="bar"><i id="quizBar"></i></div><small>เลือกคำเยอรมันที่ตรงกับความหมาย</small><h3 id="question"></h3><div id="options" class="options"></div><p id="feedback"></p><button id="nextQuiz" class="primary hidden">ข้อต่อไป →</button></div>
+<div id="articlePanel" class="panel hidden"><div class="meta"><b id="articleCount"></b><span id="articleScore"></span></div><div class="bar"><i id="articleBar"></i></div><small>DER · DIE · DAS</small><h3 id="aword"></h3><p id="athai"></p><div id="articles" class="articles"><button>der</button><button>die</button><button>das</button></div><p id="afeedback"></p><button id="nextArticle" class="primary hidden">ข้อต่อไป →</button></div>
+<div id="result" class="panel result hidden"><small>SESSION COMPLETE</small><h3>จบรอบแล้ว 🇩🇪</h3><div class="big"><b id="rscore"></b><span id="rpct"></span></div><p id="rsummary"></p><div id="wrongList"></div><div class="choices"><button id="retry" class="hidden">ฝึกเฉพาะคำที่ผิด</button><button id="againSession">เล่นอีกรอบ</button><button id="resultBack">กลับหน้าแรก</button></div></div>
+</section></main><footer>ข้อมูล 12 บท · Progress เก็บใน browser เครื่องนี้</footer><script src="data/lessons.js"></script><script src="data/vocabulary.js"></script><script src="script.js"></script></body></html>
